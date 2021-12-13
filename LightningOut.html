@@ -55,8 +55,9 @@ if (_lightningReady) {
                       console.log('lightning component created');
                     }
             );
-          }, url, $.cookie("AccToken"));
-  }
+          }, url, $.cookie("AccToken")
+	    lightningEndpoint
+  );
 
 </script>
 
