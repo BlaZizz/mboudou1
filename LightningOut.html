@@ -2,9 +2,9 @@
 
 <style>
 
-  a {
-    color: orange;
-  }
+a {
+color: orange;
+}
 
 </style>
 
@@ -12,32 +12,52 @@
 
 <div data-lightning-out="true"></div>
 
-  <script>
+<script>
 
-    const appName = 'c:OptOutFromWrapper';
-    const componentName = 'c:outOptForm';
-    const lightningEndpoint = 'https://mboudou-developer-edition.eu40.force.com';
-    const targetElement = document.querySelector("[data-lightning-out]");
-    const componentAttributes = {
+const appName = 'c:OptOutFromWrapper';
+const componentName = 'c:outOptForm';
+const lightningEndpoint = 'https://mboudou-developer-edition.eu40.force.com';
+const targetElement = document.querySelector("[data-lightning-out]");
+const componentAttributes = {
 
-    };
+};
 
- $Lightning.use(
-            appName,
-            function (){
-              $Lightning.createComponent(
-                      componentName,
-                      componentAttributes,
-                      targetElement,
-                      function (cmp){
-                        console.log('lightning component created');
-                      }
-              );
-            },
-            lightningEndpoint
-    );
+var _lightningReady = false;
+if(!$.cookie("AccToken"))
+{ 
+alert("Login to Salesforce First!!!");
+}
 
-  </script>
+function setupLightning(callback) {
+
+
+if (_lightningReady) {
+if (typeof callback === "function") {
+  callback();
+}
+} else {
+  // Transform the URL for Lightning
+  var url = $.cookie("InstURL");
+url = url.replace("my.salesforce", "lightning.force");
+
+$Lightning.use(
+      appName,
+      function (){
+        $Lightning.createComponent(
+                componentName,
+                componentAttributes,
+                targetElement,
+                function (cmp){
+                  console.log('lightning component created');
+                }
+        );
+      }, url, $.cookie("AccToken")
+      lightningEndpoint
+);
+}
+}
+
+</script>
 
 
 </html>
