@@ -25,27 +25,40 @@ const componentAttributes = {
 
 };
 
-
+var _lightningReady = false;
 if(!$.cookie("AccToken"))
 { 
   console.log('Il faut se connecter');
 alert("Login to Salesforce First!!!");
 }
 
-$Lightning.use(
-      appName,
-      function (){
-        $Lightning.createComponent(
-                componentName,
-                componentAttributes,
-                targetElement,
-                function (cmp){
-                  console.log('lightning component created');
-                }
-        );
-      },
-      lightningEndpoint
-);
+if (_lightningReady) {
+  console.log('Je suis dans le lightningready');
+		if (typeof callback === "function") {
+      console.log('Je suis dans le callback');
+			callback();
+		}
+	} else {
+	    // Transform the URL for Lightning
+    console.log('je transforme lurl');
+	    var url = $.cookie("InstURL");
+		url = url.replace("my.salesforce", "lightning.force");  
+  
+    $Lightning.use(
+          appName,
+          function (){
+            $Lightning.createComponent(
+                    componentName,
+                    componentAttributes,
+                    targetElement,
+                    function (cmp){
+                      console.log('lightning component created');
+                    }
+            );
+          },
+          lightningEndpoint
+    );
+  }
 
 </script>
 
