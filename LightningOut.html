@@ -23,23 +23,12 @@ const componentAttributes = {
 
 };
 
-var _lightningReady = false;
+
 if(!$.cookie("AccToken"))
 { 
+  console.log('Il faut se connecter');
 alert("Login to Salesforce First!!!");
 }
-
-function setupLightning(callback) {
-
-
-if (_lightningReady) {
-if (typeof callback === "function") {
-  callback();
-}
-} else {
-  // Transform the URL for Lightning
-  var url = $.cookie("InstURL");
-url = url.replace("my.salesforce", "lightning.force");
 
 $Lightning.use(
       appName,
@@ -52,11 +41,9 @@ $Lightning.use(
                   console.log('lightning component created');
                 }
         );
-      }, url, $.cookie("AccToken")
+      },
       lightningEndpoint
 );
-}
-}
 
 </script>
 
