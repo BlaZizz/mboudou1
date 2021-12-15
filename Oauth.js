@@ -10,7 +10,7 @@ var apiVersion = 'v37.0',
 
 function prodLogin()
 {
-	loginUrl = 'https://login.salesforce.com/'; 
+	loginUrl = 'https://blazizz.github.io/mboudou1/LightningOut.html'; 
     login();
 }
 
