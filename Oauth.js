@@ -20,7 +20,7 @@ function sandLogin()
     login();
 }
 function login() {
-    var url = loginUrl + 'services/oauth2/authorize?display=popup&response_type=token' +
+    var url = 'services/oauth2/authorize?display=popup&response_type=token' +
         '&client_id=' + encodeURIComponent(clientId) +
         '&redirect_uri=' + encodeURIComponent(redirectURI);
     popupCenter(url, 'login', 700, 600);
