@@ -29,19 +29,7 @@ if(!$.cookie("AccToken"))
 { 
   console.log('Il faut se connecter');
 alert("Login to Salesforce First!!!");
-}
-	response = {};
-	
-	if (response && response.access_token) { 
-        console.log(response);
-        $.cookie("AccToken",response.access_token ) ;
-        $.cookie("APIVer", apiVersion) ;
-        $.cookie("InstURL",  response.instance_url) ; 
-        $.cookie("idURL",  response.id) ;
-        
-    } else {
-        alert("AuthenticationError: No Token");
-    }
+} else{
   
     $Lightning.use(
           appName,
@@ -57,6 +45,7 @@ alert("Login to Salesforce First!!!");
           },
 	    lightningEndpoint
     );
+}
 
 </script>
 
