@@ -37,7 +37,7 @@ function oauthCallback(response) {
 		strngBrks = response.id.split('/');
 		$.cookie("LoggeduserId",  strngBrks[strngBrks.length - 1]) ;
 		
-        window.location = 'Main';
+        window.location = 'LightningOut.html';
     } else {
         alert("AuthenticationError: No Token");
     }
