@@ -3,14 +3,14 @@ $("#sandBtn").click(sandLogin);
 
 var apiVersion = 'v37.0',
     clientId = '3MVG9SOw8KERNN0.DVA_.NgWFz3fFQNeyNuWpwQaaNFIBoGKbpzV_DuQr_UeaAElUgbM7yLoXKABmksW0a9s4',
-    loginUrl = 'https://blazizz.github.io/mboudou1/LightningOut.html',
-    redirectURI = "http://blazizz.github.io/mboudou1/oauthcallback.html",
-    proxyURL = 'http://blazizz.github.io/mboudou1/proxy/' ;
+    loginUrl = 'https://login.salesforce.com/',
+    redirectURI = "https://blazizz.github.io/mboudou1/oauthcallback.html",
+    proxyURL = 'https://blazizz.github.io/mboudou1/proxy/' ;
  
 
 function prodLogin()
 {
-	loginUrl = 'https://blazizz.github.io/mboudou1/LightningOut.html'; 
+	loginUrl = 'https://login.salesforce.com/'; 
     login();
 }
 
