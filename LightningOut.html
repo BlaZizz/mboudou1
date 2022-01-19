@@ -26,11 +26,7 @@ const componentAttributes = {
 };
 	Start{!$Api.Session_ID}End
 
-if(!$.cookie("AccToken"))
-{ 
-  console.log('Il faut se connecter');
-alert("Login to Salesforce First!!!");
-} else{
+
   
     $Lightning.use(
           appName,
@@ -46,7 +42,6 @@ alert("Login to Salesforce First!!!");
           },
 	    lightningEndpoint
     );
-}
 
 </script>
 
